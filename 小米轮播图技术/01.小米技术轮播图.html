@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小米官网,价格公道，感动人心</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .light{
+            background-color: black;
+        }
+        .warp{
+            width: 1226px;
+            height: 460px;
+            margin: 100px auto;
+            position: relative;            
+        }
+        ul{
+            width: 1000%;
+            list-style: none;
+            position: relative;
+        }
+        li{
+            width: 1226px;   
+            position: absolute;                     
+            opacity: 0;
+            transition: all .8s;            
+        }
+        li img{
+            width: 1226px;
+            height: 460px;                       
+        }
+        .list .active{
+            z-index: 10;
+            opacity: 1;
+        }
+        .btn{
+            width: 30px;
+            height: 70px;
+            position: absolute;
+            background-color: rgba(0,0,0,0.5);
+            border: 0px;
+            font-size: 20px;
+            bottom: 185px;
+            color: aliceblue;
+            z-index: 1000;
+        }        
+        #gopre{
+            left: 0px;
+        }
+        #gonext{
+            right: 0px;
+        }
+
+        .research{            
+            position: absolute;
+            padding-left: 0px;
+            right: 15px;
+            bottom: 15px;
+            z-index: 99;                        
+        }
+        .research span{
+           display: inline-block;
+            margin-left: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 100%;
+            background-color: rgba(0,0,0,0.5);
+            border: 1px solid white; 
+            cursor: pointer;                       
+        }
+        .research .touch{
+            background-color: rgba(255,255,255,0.6);
+            border: 1px solid black;            
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="warp">
+        <ul class="list">
+            <li class="active">
+                <img src="images/Block_phone.jpg" alt="黑鲨手机">
+            </li>
+            <li>
+                <img src="images/Redmi_7.jpg" alt="红米7">
+            </li>
+            <li>
+                <img src="images/Redmi_Note.jpg" alt="红米note">
+            </li>
+            <li>
+                <img src="images/xiaomi_book.jpg" alt="小米笔记本-Air">
+            </li>
+            <li>
+                <img src="images/xiaomi_TV.jpg" alt="小米电视4A">
+            </li>
+        </ul>
+
+        <div class="research">
+            <span class="touch" date-index='0'></span>
+            <span date-index='1'></span>
+            <span date-index='2'></span>
+            <span date-index='3'></span>
+            <span date-index='4'></span>
+        </div>
+
+        <button class="btn" id="gopre">
+            <</button> <button class="btn" id="gonext">>
+        </button>
+    </div>
+
+    <script type="text/javascript">
+        var frame = document.getElementsByTagName('div')[0];
+        var li = document.getElementsByTagName('li');   //  图片
+        var spans = document.getElementsByTagName('span');  // 点
+        var gopreBtn = document.getElementById('gopre');
+        var gonextBtn = document.getElementById('gonext');
+        var index = 0;
+        var time = 0;
+
+        var clearClass = function () {
+            for (var i = 0; i < li.length; i++) {
+                li[i].className = '';
+                spans[i].className = '';
+            }
+        }
+
+        var goindex = function () {
+            clearClass();
+            li[index].className = 'active';
+            spans[index].className = 'touch';
+        }
+
+        var gonext = function () {
+            if (index < li.length - 1) {
+                index++;
+            }
+            else {
+                index = 0;
+            }
+            goindex();
+        };
+
+        var gopre = function () {
+            if (index > 0) {
+                index--;
+            }
+            else {
+                index = li.length - 1;
+            }
+            goindex();
+        }
+
+        gonextBtn.addEventListener('click', function () {
+            gonext();
+            time = 0;
+        }, false);
+
+        gopreBtn.addEventListener('click', function () {
+            gopre();
+            time = 0;
+        }, false);
+
+        for (var i = 0; i < spans.length; i++) {
+            spans[i].addEventListener('mouseover', function () {
+                var c = this.getAttribute('date-index');
+                index = c - 1;
+                gonext();
+
+                time = 0;
+            }, false);
+        }
+
+
+        setInterval(function () {
+            time++;
+            if (time == 50) { 
+                gonext();
+                time = 0;
+            }
+        }, 100);
+
+    </script>
+
+
+
+
+    <input type="button" value="开/关">
+    <script type="text/javascript">
+        var btn = document.getElementsByTagName('input')[0];
+        btn.onclick = function () {
+            document.body.className = document.body.className != "light" ? "light" : "";
+
+            console.log('hahah');
+        }
+        console.log('hahha');
+    </script>
+</body>
+
+</html>
