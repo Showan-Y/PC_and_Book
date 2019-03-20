@@ -1,0 +1,192 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NetEasy-Music</head>
+    <style>
+       
+    </style>
+<body>
+    
+     
+
+        <!-- dadsadusadasdaidabkdiu -->
+<!--    
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NetEasy_Music</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+        ul {
+            list-style: none;
+            padding: 0px;
+        }
+        .content {
+            width: 1200px;
+            height: 367px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+        .imglist {
+            width: 1200px;
+            height: 336px;
+            background-color: aqua;
+        }
+        .imglist>ul {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        .imglist>ul>li{
+            position: absolute;
+            width: 730px;
+            height: 336px;
+            transition:0.5s;
+        }
+        .list1{
+            transform: translateX(0) scale(0.81);
+            transform-origin: 0% 100%;
+            z-index: 1;
+        }
+        .list2{
+            transform: translateX(235px) scale(1);            
+            z-index: 10;
+        }
+        .list3{
+            transform: translateX(730px) scale(0.81);
+            transform-origin: 100% 100%;
+            z-index: 1;
+        }
+        .list4{
+            transform: translateX(965px) scale(0.81);
+            transform-origin: 100% 100%;            
+        }
+        .list5{
+            transform: translateX(1200px) scale(0.81);
+            transform-origin: 100% 100%;            
+        }
+        .list6{
+            transform: translateX(1435px) scale(0.81);
+            transform-origin: 100% 100%;            
+        }
+
+        .lineb{
+            width: 1200px;
+            height: 31px;
+            background-color: skyblue;
+            text-align: center;
+        }
+        .lineb span{
+            display: inline-block;
+            width: 35px;
+            height: 3px;
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="imglist">
+            <ul>
+                <li class="list1"><img src="images/1.jpg" alt="网易云音乐"></li>
+                <li class="list2"><img src="images/2.jpg" alt="网易云音乐"></li>
+                <li class="list3"><img src="images/3.jpg" alt="网易云音乐"></li>
+                <li class="list4"><img src="images/4.jpg" alt="网易云音乐"></li>
+                <li class="list5"><img src="images/5.jpg" alt="网易云音乐"></li>
+                <li class="list6"><img src="images/6.jpg" alt="网易云音乐"></li>
+            </ul>
+        </div>
+
+        <div class="lineb">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var lis = document.getElementsByTagName('li');
+        var liNames = ['list1', 'list2', 'list3', 'list4', 'list5', 'list6'];
+        var index = 1;
+        var liLeng = lis.length
+        var spans = document.getElementsByTagName('span');
+        var sLeng = spans.length;
+
+        function setlineBcolor() {
+            for (var i = 0; i < sLeng; i++) {
+                spans[i].style.backgroundColor = 'gray';
+            }
+            spans[index].style.backgroundColor = '#45c17c';
+        }
+
+        setlineBcolor();
+
+        function next() {
+            liNames.unshift(liNames[5]);
+            liNames.pop();
+
+            for (var i = 0; i < liLeng; i++) {
+                lis[i].setAttribute('class', liNames[i]);
+            }
+
+            if (index < 6) {
+                index++
+            }
+            else {
+                index = 0;
+            }
+            setlineBcolor();
+        }
+
+
+        function pre() {
+            liNames.push(liNames[0]);
+            liNames.shift();      // 移除第一个元素
+
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].setAttribute('class', liNames[i]);
+            }
+            
+            if (index > 0) {
+                index--
+            }
+            else {
+                index = 5;
+            }
+            setlineBcolor();
+        }
+
+        var imgList = document.querySelector('.imglist');
+        imgList.addEventListener('click',function(ev){
+        
+        if(ev.target.parentNode.getAttribute('class')=='list3'){
+            next();
+        }
+
+        if(ev.target.parentNode.getAttribute('class')=='list1'){
+            pre();
+        }
+        },false);
+
+    </script>
+</body>
+
+</html>
