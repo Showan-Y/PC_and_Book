@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        li{
+            list-style: none;
+        }
+        body{
+            background:url(images/WeChat_Back.jpg) repeat-x;            
+        }        
+        .Nav{
+            width: 968px;
+            height: 75px;
+            margin: 0px auto;            
+        }        
+        .Nav img{
+            display: block;
+            width: 130px;
+            height: 44px;
+            margin-top: 20px; 
+            float: left;                      
+        }       
+        .Nav ul a{            
+            display: block;
+            line-height: 33px;
+            color: white;
+            text-decoration: none;
+            float: right;  
+            margin: 20px 0px 0px 0px;  
+            padding-left: 15px;          
+        }  
+        .Nav ul span{
+            display: inline-block;
+            padding-right: 15px; 
+        }
+        
+        .Nav ul a:hover{
+            background: url(images/WeChat_Btn02.jpg) no-repeat;           
+        }
+        .Nav ul a:hover span{                       
+            background: url(images/WeChat_Btn02.jpg) no-repeat right;            
+        }
+
+        .Nav ul a:active{
+            background: url(images/WeChat_Btn.jpg) no-repeat;
+            padding-left: 15px;
+        }
+        .Nav ul a:active span{
+            display: inline-block;            
+            background: url(images/WeChat_Btn.jpg) no-repeat right;
+            padding-right: 15px;
+        }
+        .First{
+            background: url(images/WeChat_Btn.jpg) no-repeat;
+            padding-left: 15px;
+        }
+        .first{
+            background: url(images/WeChat_Btn.jpg) no-repeat right;
+            padding-right: 15px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="Nav">
+        <a href="#">
+            <img src="images/WeChat_Logo.jpg">
+        </a>
+        <ul>
+            <li><a href="#"><span>微信广告</span></a></li>
+            <li><a href="#"><span>表情开放平台</span></a></li>
+            <li><a href="#"><span>微信网页版</span></a></li>
+            <li><a href="#"><span>微信支付</span></a></li>
+            <li><a href="#"><span>开放平台</span></a></li>
+            <li><a href="#"><span>公众平台</span></a></li>
+            <li><a href="#"><span>帮助与反馈</span></a></li>
+            <li><a href="#" class="First"><span class="first">首页</span></a></li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+<!-- /* background: url(images/WeChat_Btn02.jpg) no-repeat; */ -->
